@@ -86,22 +86,28 @@ function Friend({ friend }) {
 
 function FormAddFriend({ friends, onAddFriends }) {
   const [name, setName] = useState("");
-  const [imageURL, setImageURL] = useState("");
+  const [image, setImage] = useState("https://i.pravatar.cc/48");
 
   function handleClearForm() {
     setName("");
-    setImageURL("");
+    setImage("https://i.pravatar.cc/48");
   }
 
-  function handleAddFriends(e) {
+  function handleSubmit(e) {
     e.preventDefault();
 
+    if (!name || !image) return;
+
+    const id = crypto.randomUUID();
+
     const newFriend = {
-      id: Date.now().toLocaleString(),
+      id,
       name,
-      imageURL,
+      image: `${image}?=${id}`,
       balance: 0,
     };
+
+    console.log("newFriend :>> ", newFriend);
 
     // add a friend
     onAddFriends((friends) => [...friends, newFriend]);
@@ -110,7 +116,7 @@ function FormAddFriend({ friends, onAddFriends }) {
   }
 
   return (
-    <form className="form-add-friend">
+    <form className="form-add-friend" onSubmit={handleSubmit}>
       <label>👬 Friend Name</label>
       <input
         type="text"
@@ -121,11 +127,11 @@ function FormAddFriend({ friends, onAddFriends }) {
       <label>🌄 Image URL</label>
       <input
         type="text"
-        value={imageURL}
-        onChange={(e) => setImageURL(e.target.value)}
+        value={image}
+        onChange={(e) => setImage(e.target.value)}
       />
 
-      <Button onClick={handleAddFriends}>Add</Button>
+      <Button>Add</Button>
     </form>
   );
 }
