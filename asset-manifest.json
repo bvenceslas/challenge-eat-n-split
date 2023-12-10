@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/challenge-eat-n-split/static/css/main.a4c28843.css",
+    "main.js": "/challenge-eat-n-split/static/js/main.f51aea9e.js",
+    "index.html": "/challenge-eat-n-split/index.html",
+    "main.a4c28843.css.map": "/challenge-eat-n-split/static/css/main.a4c28843.css.map",
+    "main.f51aea9e.js.map": "/challenge-eat-n-split/static/js/main.f51aea9e.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a4c28843.css",
+    "static/js/main.f51aea9e.js"
+  ]
+}
